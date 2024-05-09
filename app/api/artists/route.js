@@ -24,8 +24,8 @@ export async function GET() {
   // Convert the artist IDs to a string
   const artistsString = artistsIds.join(",");
 
-  const artistsResponse = await fetch(
-    `https://api.spotify.com/v1/artists?ids=${taylorSwift}`,
+  const apiResponse = await fetch(
+    `https://api.spotify.com/v1/artists?ids=${artistsString}`,
     {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -33,7 +33,7 @@ export async function GET() {
     }
   );
 
-  const artistsData = await artistsResponse.json();
+  const artistsData = await apiResponse.json();
 
   return new Response(JSON.stringify(artistsData));
 }

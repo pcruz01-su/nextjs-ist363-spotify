@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 function HomePage() {
-  const [artist, setArtist] = useState([]);
+  const [artists, setArtists] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -12,7 +12,7 @@ function HomePage() {
       fetch("/api/artists")
         .then((res) => res.json())
         .then((data) => {
-          setArtist(data);
+          setArtists(data.artists);
           setIsLoading(false);
         });
     } catch (error) {
@@ -23,7 +23,13 @@ function HomePage() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading artists</p>;
 
-  return <div>{artist.name}</div>;
+  return (
+    <div>
+      {artists.map((artist) => {
+        return <h1 key={artist.id}>{artist.name}</h1>;
+      })}
+    </div>
+  );
 }
 
 export default HomePage;
