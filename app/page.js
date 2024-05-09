@@ -23,13 +23,7 @@ function HomePage() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading artists</p>;
 
-  return (
-    <div>
-      {artists.map((artist) => {
-        return <h1 key={artist.id}>{artist.name}</h1>;
-      })}
-    </div>
-  );
+  return <main>Middle content gh</main>;
 }
 
 export default HomePage;
