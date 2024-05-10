@@ -26,10 +26,10 @@ function HomePage() {
   if (error) return <p>Error loading artists</p>;
 
   return (
-  <main>
-    <Showcase />
-  </main>
-);
+    <main>
+      <Showcase items={artists} />
+    </main>
+  );
 }
 
 export default HomePage;
