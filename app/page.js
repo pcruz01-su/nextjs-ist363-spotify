@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 
+import Showcase from "../components/custom/Showcase";
+
 function HomePage() {
   const [artists, setArtists] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +25,11 @@ function HomePage() {
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error loading artists</p>;
 
-  return <main>Middle content gh</main>;
+  return (
+  <main>
+    <Showcase />
+  </main>
+);
 }
 
 export default HomePage;

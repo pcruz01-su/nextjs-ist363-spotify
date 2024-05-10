@@ -1,4 +1,6 @@
+import styles from "./Footer.module.scss";
+
 const Footer = () => {
-  return <footer> CR info gh</footer>;
+  return <footer className={styles.footer}> CR info gh</footer>;
 };
 export default Footer;
